@@ -13,9 +13,9 @@ function generatePassword() {
 }
 
 function passwordPrompts() {
-  passwordLength = parseInt(prompt("Please type how many characters you will like your password to be. (8-128 characters) "))
+  passwordLength = parseInt(prompt("Please type how many characters you will like your password to be. (8-128 characters"));
 
-  if(isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
+  if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
     alert("ERROR. Password length entered was not a number. Please enter a number between 8 to 128.");
     return false;
   }
@@ -35,6 +35,7 @@ function passwordPrompts() {
   if (confirm("Would you like your password to include numbers?")) {
     choiceArray = choiceArray.concat(numberCharacter);
   }
+  return true;
 }
 
 // Get references to the #generate element
