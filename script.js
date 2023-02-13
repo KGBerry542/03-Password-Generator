@@ -40,7 +40,7 @@ function passwordPrompts() {
   passwordLength = parseInt(prompt("Please type how many characters you will like your password to be. (8-128 characters"));
 
   if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
-    alert("ERROR. Password length entered was not a number. Please enter a number between 8 to 128.");
+    alert("ERROR. Password length entered was not a number or not correct length. Please enter a number between 8 to 128.");
     return false;
   }
 
