@@ -8,11 +8,35 @@ let lowercaseCharacter = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
 let passwordLength = 8;
 let choiceArray = [];
 
+// Get references to the #generate element
+var generateBtn = document.querySelector("#generate");
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+// Write password to the #password input
+function writePassword() {
+  let correctPrompts = passwordPrompts();
+
+  if (correctPrompts) {
+    let randomPassword = generatePassword();
+    let passwordText = document.querySelector("#password");
+    passwordText.value = randomPassword;
+  }
+}
+
 function generatePassword() {
-  console.log("Password!!")
+  let password = "";
+  for (let i = 0; i < passwordLength; i++) {
+    let randomLetter = Math.floor(Math.random() * choiceArray.length)
+    password = password + choiceArray[randomLetter];
+  }
+  return password
 }
 
 function passwordPrompts() {
+  choiceArray = [];
+
   passwordLength = parseInt(prompt("Please type how many characters you will like your password to be. (8-128 characters"));
 
   if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
@@ -37,18 +61,3 @@ function passwordPrompts() {
   }
   return true;
 }
-
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-  let password = generatePassword();
-  let passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
